@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps, translations, pics }) {
     <PictureContext.Provider value={pics}>
       <TranslationContext.Provider value={translations}>
         <Component {...pageProps} />
-      </TranslationContext.Provider>{' '}
+      </TranslationContext.Provider>
     </PictureContext.Provider>
   );
 }

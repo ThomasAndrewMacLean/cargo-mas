@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;400&display=swap');
 
 :root {
-  --background-dark: #77f;
+  --background-dark: #e6ae48;
+  --background-light: #e7cc9a;
   --border: 3px solid black;
 }
 * {
@@ -12,7 +13,7 @@
   touch-action: manipulation;
 }
 ::selection {
-  background: var(--background-light); /* WebKit/Blink Browsers */
+  background: var(--background-dark); /* WebKit/Blink Browsers */
 }
 html,
 body {
@@ -29,4 +30,3 @@ ul {
 li {
   padding-bottom: 0.5rem;
 }
-

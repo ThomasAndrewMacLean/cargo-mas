@@ -3,13 +3,13 @@ import { PictureContext } from '../pages/_app';
 import PropTypes from 'prop-types';
 import { getImageUrl } from '../utils';
 
-const Image = ({ id }) => {
+const Image = ({ imageKey }) => {
   const pics = useContext(PictureContext);
-  return <img src={getImageUrl(pics, id, true)}></img>;
+  return <img src={getImageUrl(pics, imageKey, true)}></img>;
 };
 
 Image.propTypes = {
-  id: PropTypes.string.isRequired,
+  imageKey: PropTypes.string.isRequired,
 };
 
 export default Image;
