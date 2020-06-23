@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Head from 'next/head';
 import styled from 'styled-components';
 import { TranslationContext } from '../pages/_app';
@@ -7,12 +7,14 @@ import { T, Video, Image } from '../components';
 
 const socials = ['spotify', 'twitter', 'instagram', 'facebook', 'youtube'];
 const IndexPage = () => {
+  const [sound, setSound] = useState(false);
   const translationsFromContext = useContext(TranslationContext);
 
   const toggleMute = () => {
     console.log('🔈');
     const video = document.querySelector('video');
     video.muted = !video.muted;
+    setSound(!sound);
   };
   return (
     <Main>
@@ -28,14 +30,23 @@ const IndexPage = () => {
 
         <Image imageKey="logo"></Image>
       </Header>
+      <Cta
+        onClick={() => {
+          location.href =
+            'mailto:info@cargomas.com?subject=Buy album&body=Blabla%0D%0A%0D%0ASend 20euro to this account%0D%0A%0D%0AAnd fill in your name and address%0D%0A%0D%0A%0D%0Aname:%0D%0Aaddress%0D%0A%0D%0A%0D%0AIf name is not the same as from the bank account please specify!';
+        }}
+      >
+        <T translationKey="buyAlbum"></T>
+      </Cta>
       <Mute onClick={toggleMute}>
-        <Image imageKey="sound"></Image>
+        {sound ? (
+          <Image imageKey="sound"></Image>
+        ) : (
+          <Image imageKey="soundoff"></Image>
+        )}
       </Mute>
-      <Section>
-        {/* <h1>
-          <T translationKey="title"></T>
-        </h1> */}
 
+      <SocialLink>
         {socials.map((social) => {
           return (
             <Link
@@ -51,10 +62,30 @@ const IndexPage = () => {
             </Link>
           );
         })}
-      </Section>
+      </SocialLink>
     </Main>
   );
 };
+
+const Cta = styled.button`
+  position: absolute;
+  top: 60%;
+  right: 20%;
+  font-family: inherit;
+  border-radius: 200px;
+  font-size: 2rem;
+  padding: 10px 40px;
+  background: none;
+  cursor: pointer;
+  color: white;
+  border: 3px solid white;
+  transition: all 300ms ease-in;
+  :hover {
+    background: var(--background-dark);
+    color: #111;
+    border-color: #111;
+  }
+`;
 
 const Mute = styled.button`
   img {
@@ -75,7 +106,7 @@ const Link = styled.a`
     transform: scale(1.1);
   }
 `;
-const Section = styled.section`
+const SocialLink = styled.section`
   padding: 2rem;
   position: fixed;
   bottom: 0;
