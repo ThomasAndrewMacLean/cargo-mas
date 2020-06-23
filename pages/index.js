@@ -93,8 +93,8 @@ const Header = styled.header`
     top: 0;
   }
   video {
-    height: 100vh;
-    width: auto;
+    min-height: 100vh;
+    min-width: 100%;
     position: relative;
   }
 `;
