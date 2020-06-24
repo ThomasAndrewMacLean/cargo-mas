@@ -30,14 +30,14 @@ const IndexPage = () => {
 
         <Image imageKey="logo"></Image>
       </Header>
-      <Cta
-        onClick={() => {
-          location.href =
-            'mailto:info@cargomas.com?subject=Buy album&body=Blabla%0D%0A%0D%0ASend 20euro to this account%0D%0A%0D%0AAnd fill in your name and address%0D%0A%0D%0A%0D%0Aname:%0D%0Aaddress%0D%0A%0D%0A%0D%0AIf name is not the same as from the bank account please specify!';
-        }}
-      >
-        <T translationKey="buyAlbum"></T>
-      </Cta>
+ //     <Cta
+   //     onClick={() => {
+ //         location.href =
+ //           'mailto:info@cargomas.com?subject=Buy album&body=Blabla%0D%0A%0D%0ASend 20euro to this account%0D%0A%0D%0AAnd fill in your name and address%0D%0A%0D%0A%0D%0Aname:%0D%0Aaddress%0D%0A%0D%0A%0D%0AIf name is not the same as from the bank account please specify!';
+   //     }}
+  //    >
+    //    <T translationKey="buyAlbum"></T>
+  //    </Cta>
       <Mute onClick={toggleMute}>
         {sound ? (
           <Image imageKey="sound"></Image>
